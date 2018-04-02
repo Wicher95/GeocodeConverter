@@ -29,7 +29,7 @@ namespace GeocodeConverter
                     Thread.Sleep(200);
                     mapPoint = getLatLongPositions(address);
                 };
-                string latLngAddress = a.CityName + "," + a.Name + "," + mapPoint.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + mapPoint.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + a.Type + ",";
+                string latLngAddress = "Opole" + "," + a.Name + "," + mapPoint.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + mapPoint.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + a.Type + ",";
                 latLngAddresses.Add(latLngAddress);
                 Console.WriteLine(latLngAddress);
                 Thread.Sleep(200);
