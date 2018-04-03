@@ -36,6 +36,8 @@ namespace GeocodeConverter
                             addressProperties.StrName = splited[2];
                             addressProperties.StrNumber = splited[3];
                             addressProperties.Type = splited[4];
+                            addressProperties.Category = splited[5];
+                            addressProperties.OpenTime = splited[6];
                             addresses.Add(addressProperties);
                         }
                     }

@@ -26,10 +26,10 @@ namespace GeocodeConverter
                 MapPoint mapPoint = getLatLongPositions(address);
                 while (mapPoint == null)
                 {
-                    Thread.Sleep(200);
+                    Thread.Sleep(600);
                     mapPoint = getLatLongPositions(address);
                 };
-                string latLngAddress = "Opole" + "," + a.Name + "," + mapPoint.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + mapPoint.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + a.Type + ",";
+                string latLngAddress = a.Category + "," + a.Name + "," + mapPoint.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + mapPoint.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + a.Type + "," + a.StrName + "," + a.StrNumber + "," + a.OpenTime;
                 latLngAddresses.Add(latLngAddress);
                 Console.WriteLine(latLngAddress);
                 Thread.Sleep(200);
