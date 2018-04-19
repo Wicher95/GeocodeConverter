@@ -24,15 +24,22 @@ namespace GeocodeConverter
             {
                 string address = a.CityName + "," + a.StrNumber + "," + a.StrName + ", Poland";
                 MapPoint mapPoint = getLatLongPositions(address);
-                while (mapPoint == null)
+                for (int i=0;i<10;i++)
                 {
-                    Thread.Sleep(600);
+                    if(mapPoint != null)
+                    {                        
+                        break;
+                    }                         
+                    Thread.Sleep(400);
                     mapPoint = getLatLongPositions(address);
                 };
-                string latLngAddress = a.Category + "," + a.Name + "," + mapPoint.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + mapPoint.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + a.Type + "," + a.StrName + "," + a.StrNumber + "," + a.OpenTime;
-                latLngAddresses.Add(latLngAddress);
-                Console.WriteLine(latLngAddress);
-                Thread.Sleep(200);
+                if (mapPoint != null)
+                {
+                    string latLngAddress = a.Category + "," + a.Name + "," + mapPoint.Latitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + mapPoint.Longitude.ToString(System.Globalization.CultureInfo.InvariantCulture) + "," + a.Type + "," + a.StrName + "," + a.StrNumber + "," + a.OpenTime;
+                    latLngAddresses.Add(latLngAddress);
+                    Console.WriteLine(latLngAddress);
+                }
+                Thread.Sleep(400);
             }
             save(saveLocalization, latLngAddresses);
         }
